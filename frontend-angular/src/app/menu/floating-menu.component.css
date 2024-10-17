@@ -1,0 +1,27 @@
+#nav-bar {
+  height: 50px;
+  position: sticky;
+  top: 0;
+  overflow: visible;
+  background-color: #666666;
+}
+
+#nav-bar a {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.left-align, .left-align a {
+  float: left;
+}
+
+.right-align, .right-align a {
+  float: right;
+}
+
+#authorized {
+  position: relative;
+}

@@ -1,0 +1,7 @@
+@if (post$ | async; as posts) {
+  @if(thread$ | async; as thread){
+    @for(post of posts; track post){
+      <post [post]="post" [thread]="thread" [threadmark]="thread.threadmarks[0]"/>
+    }
+  }
+}

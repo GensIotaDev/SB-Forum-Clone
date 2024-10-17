@@ -1,0 +1,63 @@
+@if(isFilterCollapsed){
+    <button type="button"
+            class="btn btn-tertiary py-1 px-2 float-end"
+            (click)="toggleFilterView()"
+            [attr.aria-expanded]="!isFilterCollapsed"
+            aria-controls="collapseFilter">
+        <i class="bi bi-filter"></i>
+    </button>
+}
+<div #filter="ngbCollapse" [(ngbCollapse)]="isFilterCollapsed" [animation]="false"
+     class="container root-bordered">
+    <form>
+
+    </form>
+    <div class="row p-1 border-bottom border-secondary">
+      <span>
+        <i class="bi bi-chevron-double-right font-small me-1"></i>
+        Filters
+      </span>
+    </div>
+    <div class="row filter">
+        <div class="row">
+            <label for="tags" class="pb-1">Tags:</label>
+            <div class="col">
+                <input id="tags" type="text" class="form-control form-control-sm">
+            </div>
+        </div>
+        <div class="row">
+            <label for="exclude-tags" class="pb-1">Exclude tags:</label>
+            <div class="col">
+                <input id="exclude-tags" type="text" class="form-control form-control-sm">
+            </div>
+        </div>
+        <div class="row">
+            <label for="prefix" class="pb-1">Started by:</label>
+            <div class="col">
+                <input id="prefix" type="text" class="form-control form-control-sm">
+            </div>
+        </div>
+        <div class="row">
+            <label for="sort-by" class="pb-1">Sorted by:</label>
+            <div class="col" >
+                <select id="sort-by" class="form-select filter-form-select" aria-label="sort-by">
+                    <option value="0" selected>Last message</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select filter-form-select" aria-label="direction">
+                    <option value="0" selected>Descending</option>
+                    <option value="1">Ascending</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row p-1 border-top border-secondary bg-body justify-content-between">
+        <div class="col-4 justify-column-left">
+            <button class="btn btn-tertiary btn-sm" (click)="filter.toggle()">Collapse</button>
+        </div>
+        <div class="col-4 justify-column-right">
+            <button type="submit" class="btn btn-tertiary btn-sm" (submit)="submit">Filter</button>
+        </div>
+    </div>
+</div>

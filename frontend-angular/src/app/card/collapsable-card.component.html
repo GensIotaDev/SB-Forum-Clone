@@ -1,0 +1,15 @@
+<div [ngClass]="cardClass" class="row mx-0 mb-3 border rounded overflow-hidden">
+  <div [ngClass]="headerClass" class="d-flex justify-content-between align-items-center border-bottom">
+    <ng-content select="header"></ng-content>
+    <button type="button"
+            [ngClass]="isCollapsed? 'bi-caret-right-fill': 'bi-caret-down-fill'"
+            class="btn text-white-50 ms-1"
+            (click)="collapse.toggle()"
+            [attr.aria-expanded]="!isCollapsed"
+            aria-controls="collapseForumSection">
+    </button>
+  </div>
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+    <ng-content></ng-content>
+  </div>
+</div>

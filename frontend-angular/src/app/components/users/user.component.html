@@ -1,0 +1,70 @@
+@if(user$ | async; as user){
+<div class="container-fluid">
+  <div id="root" class="row border border-secondary rounded-2"> <!-- profile card -->
+    <div class="row">
+      <div class="col-md-2">
+        <div id="user-icon" class="d-flex mx-auto rounded-2 align-items-center justify-content-center">
+          @let url = user.icon_url;
+          @if(url){
+            <img src="{{url}}" class="flex-fill"/>
+          } @else{
+            <span>{{user.username[0] | uppercase}}</span>
+          }
+        </div>
+      </div>
+      <div class="col">
+        <div class="row border-bottom border-secondary pt-1 pb-2">
+          <span>{{user.username}}</span>
+          <span><small>Joined:</small> todo</span>
+          <span><small>Last Seen:</small> todo</span>
+        </div>
+        <div class="row justify-content-between text-center pt-1 pb-2">
+          @for(metric of metrics | keyvalue; track metric){
+            <div class="col-sm-1">
+              <div>{{metric.key}}</div>
+              <div>{{metric.value}}</div>
+            </div>
+          }
+        </div>
+        <div class="row border-top border-secondary pt-1 justify-content-start g-1">
+          <div class="col-md-2 btn-group">
+            <button type="button" class="btn btn-secondary">Gift</button>
+            <button type="button" class="btn btn-secondary">Follow</button>
+            <button type="button" class="btn btn-secondary">Ignore</button>
+          </div>
+          <div class="col-md-3 btn-group d-inline-block" role="group">
+            <button type="button" class="btn btn-secondary">Start conversation</button>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">Find</button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><h3 class="dropdown-header">Find Content</h3></li>
+                <li><a class="dropdown-item" href="#">Find all content by {{user.username}}</a></li>
+                <li><a class="dropdown-item" href="#">Find all threads by {{user.username}}</a></li>
+                <li><a class="dropdown-item" href="#">Find all stories by {{user.username}}</a></li>
+                <li><a class="dropdown-item" href="#">Find all awarded content by {{user.username}}</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="g-0">
+      <nav class="nav">
+        @for(page of subpages; track page; let i = $index, first = $first, last = $last){
+          <a class="nav-link"
+             routerLink="{{page.url}}"
+             routerLinkActive="active-page"
+             [routerLinkActiveOptions]="{exact:true}"
+             ariaCurrentWhenActive="page"
+          >
+            {{page.title}}
+          </a>
+        }
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <router-outlet/>
+  </div>
+</div>
+}

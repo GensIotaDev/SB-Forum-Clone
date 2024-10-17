@@ -1,0 +1,53 @@
+<ng-template #ellipsis>
+  <div class="input-group">
+    <input type="number" placeholder="1">
+    <button class="btn btn-outline" type="button">
+      <i class="bi bi-plus"></i>
+    </button>
+    <button class="btn btn-outline" type="button">
+      <i class="bi bi-dash"></i>
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #defaultNumber let-page let-currentPage="currentPage">{{ page }}</ng-template>
+
+<ngb-pagination #pageparent [collectionSize]=collectionSize [maxSize]="5" [pageSize]=itemsPerPage [(page)]="page" (pageChange)="onPageChange()" [ellipses]="true" [rotate]="true">
+  <ng-template ngbPaginationPrevious>Prev</ng-template>
+  <ng-template ngbPaginationPages let-page let-pages="pages" let-disabled="disabled">
+    @for(pageNumber of pages; track $index){
+      <li
+        class="page-item"
+        [class.active]="pageNumber === page"
+        [class.disabled]="disabled"
+        [attr.aria-current]="pageNumber === page ? 'page' : null"
+      >
+        @if (pageparent.isEllipsis(pageNumber)) {
+          <button type="button"
+                  class="page-link btn btn-outline-info"
+                  popoverTitle="Go to page"
+                  [autoClose]="'outside'"
+                  [ngbPopover]=ellipsis
+                  tabindex="-1"
+          >
+            ...
+          </button>
+        } @else {
+          <a
+            class="page-link"
+            href
+            (click)="pageparent.selectPage(pageNumber); $event.preventDefault()"
+            [attr.tabindex]="disabled ? '-1' : null"
+            [attr.aria-disabled]="disabled ? 'true' : null"
+          >
+            <ng-template
+              [ngTemplateOutlet]="pageparent.tplNumber?.templateRef || defaultNumber"
+              [ngTemplateOutletContext]="{ disabled: disabled, $implicit: pageNumber, currentPage: page }"
+            />
+          </a>
+        }
+      </li>
+    }
+  </ng-template>
+  <ng-template ngbPaginationNext>Next</ng-template>
+</ngb-pagination>

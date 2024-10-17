@@ -1,0 +1,38 @@
+<ngb-pagination
+        [collectionSize]="collectionSize"
+        [(page)]="page"
+        [maxSize]="5"
+        [rotate]="true"
+        [ellipses]="false"
+        [boundaryLinks]="true"
+        (pageChange)="onPageChange($event)"
+/>
+<table>
+    <tr>
+      <th style="width:5%"></th>
+      <th></th>
+      <th style="width:10%"></th>
+      <th style="width:10%"></th>
+    </tr>
+  @for (thread of threads | slice: (page-1) * pageSize : page * pageSize; track thread){
+    <tr>
+      <td>
+        <img src="/favicon.ico"/>
+      </td>
+      <td>
+        <a href="#">{{thread.title}}</a>
+        <span>{{thread.author}}</span>
+        <span>id: {{thread.id}}</span>
+      </td>
+      <td>
+        <span>Replies: <a href="#">30</a></span>
+        <span>Views: 100</span>
+      </td>
+      <td>
+        <span>DateTime</span>
+        <span>{{thread.author}}</span>
+        <img src="/favicon.ico"/>
+      </td>
+    </tr>
+  }
+</table>

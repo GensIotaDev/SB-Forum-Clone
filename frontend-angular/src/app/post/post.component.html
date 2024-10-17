@@ -1,0 +1,11 @@
+<div>
+  @defer {
+    @for (post of posts; track post.id) {
+      <p>{{post.title}}</p>
+    }
+  } @placeholder {
+    <p>*TODO*</p>
+  } @loading (minimum 1s) {
+    <p>Loading Posts...</p>
+  }
+</div>

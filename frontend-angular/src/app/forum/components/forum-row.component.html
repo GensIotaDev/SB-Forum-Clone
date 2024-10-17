@@ -1,0 +1,39 @@
+<div class="row align-items-center">
+    <div class="col-10 d-flex align-items-center">
+        <i [ngClass]="'bi-pen'" class="bi text-warning" style='font-size: 35px;'></i>
+        <div class="ms-2">
+            <a routerLink="{{forum.url}}" class="fw-bold">{{forum.title}}</a>
+            <div class="font-small text-white">
+                <span class="text-white-50">Threads: </span>
+                <span>{{ forum.threadCount }}</span>
+                <span class="text-white-50"> Messages: </span>
+                <span>{{ forum.postCount }}</span>
+                @if(forum.children.length > 0){
+                    <div ngbDropdown class="d-inline-block" container="body">
+                        <button id="subforumDropdown" type="button" class="link-dropdown" ngbDropdownToggle>
+                            <span class="font-small text-white-50">Sub-forums</span>
+                        </button>
+                        <div ngbDropdownMenu aria-labelledby="subforumDropdown" class="border border-secondary">
+                            <h2 class="dropdown-header fw-bold">Sub-forums</h2>
+                            <div class="dropdown-divider"></div>
+                            @for(subforum of forum.children; track subforum){
+                                <a routerLink="{{subforum.url}}" class="fw-bold" ngbDropdownItem>
+                                    <i [ngClass]="" class="bi text-warning"></i>
+                                    {{subforum.title}}
+                                </a>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-2 d-flex align-items-center">
+        <div id="icon" style="width: 50px; height: 50px; background-color: red;"></div>
+        <div>
+            <a>Thread title</a>
+            date
+            <a>Author</a>
+        </div>
+    </div>
+</div>

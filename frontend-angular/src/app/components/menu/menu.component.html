@@ -1,0 +1,37 @@
+<nav id='nav1' class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <div class="btn-group" ngbDropdown role="group" aria-label="Forum buttons">
+      <button type="button" class="btn btn-primary">Forums</button>
+      <button type="button" class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+      <div class="dropdown-menu-dark" ngbDropdownMenu>
+        <button ngbDropdownItem>T1</button>
+        <button ngbDropdownItem>T2</button>
+      </div>
+    </div>
+    <div>
+
+      <div class="btn-group" role="group">
+        @if(!isAuthenticated()){
+          <a class="btn btn-primary" routerLink="login">Login</a>
+          <a class="btn btn-primary" routerLink="login/register">Register</a>
+        } @else {
+          <a class="btn btn-primary" href="/account" (click)="$event.preventDefault();">
+            <i class="bi bi-lock"></i>
+            Username
+          </a>
+          <a class="btn btn-primary" href="/account/conversations" (click)="$event.preventDefault();">
+            <i class="bi bi-envelope"></i>
+          </a>
+          <a class="btn btn-primary position-relative" href="/account/alerts" (click)="$event.preventDefault();">
+            <i class="bi bi-bell position-absolute start-0 z-0"></i>
+            <div class="position-absolute start-0 z-1" style="background-color: red; line-height: 14px;">#</div>
+          </a>
+        }
+      </div>
+      <button type="button" class="btn btn-primary">
+        <i class="bi bi-search"></i>
+        Search
+      </button>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,20 @@
+.tc-container {
+  display: grid;
+  grid-template-columns: 5% 75% 10% 10%;
+}
+
+.tc-icon {
+  grid-column: 1;
+}
+
+.tc-info {
+  grid-column: 2;
+}
+
+.tc-meta {
+  grid-column: 3;
+}
+
+.tc-recent {
+  grid-column: 4;
+}

@@ -1,0 +1,20 @@
+@for(announcement of announcements$ | async; track announcement; let index = $index){
+  @if(announcement.visible){
+    <div class="bg-tertiary p-2">
+      <button type="button"
+              class="float-end btn-close btn-close-white btn-close-offset"
+              [ngbTooltip]="tooltip"
+              (click)="dismiss(index)"
+      ></button>
+      @for(fragment of announcement.fragments; track fragment){
+        <div [innerHtml]="fragment.safeContent">
+        </div>
+      }
+    </div>
+  }
+}
+
+
+<ng-template #tooltip>
+Dismiss notice
+</ng-template>

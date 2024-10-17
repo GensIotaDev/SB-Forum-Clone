@@ -1,0 +1,15 @@
+@if(breadcrumbs$ | async; as breadcrumbs){
+  @if(breadcrumbs.length > 0){
+    <div class="root-bordered py-1 px-2">
+      @for(crumb of breadcrumbs; track crumb; let last = $last){
+        @let fragmentPos = crumb.url.indexOf('#');
+        @if(fragmentPos == -1){
+          <a [ngClass]="{'fw-bold': last}" class="fw-bold" routerLink="{{crumb.url}}">{{crumb.title}}</a>
+        }@else {
+          <a [ngClass]="{'fw-bold': last}" class="fw-bold" routerLink="{{crumb.url.slice(0, fragmentPos)}}" fragment="{{crumb.url.slice(fragmentPos+1)}}">{{crumb.title}}</a>
+        }
+        <i class="bi bi-chevron-right"></i>
+      }
+    </div>
+  }
+}

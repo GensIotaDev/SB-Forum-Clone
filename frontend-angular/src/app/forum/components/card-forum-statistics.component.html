@@ -1,0 +1,14 @@
+<div class="bg-primary border border-secondary rounded overflow-hidden">
+  <div class="border-bottom border-secondary py-1 px-2">
+    <i class="bi bi-p-circle me-1"></i>
+    <span>Forum statistics</span>
+  </div>
+  <div class="font-small text-body-tertiary py-1 px-2">
+    @for(item of stats$ | async; track item){
+      <div class="d-flex justify-content-between">
+        <span>{{item.key}}</span>
+        <span>{{item.value}}</span>
+      </div>
+    }
+  </div>
+</div>

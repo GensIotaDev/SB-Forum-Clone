@@ -1,0 +1,43 @@
+<div class="bg-primary border border-secondary rounded overflow-hidden">
+  <div class="border-bottom border-secondary py-1 px-2">
+    @if(page === "home"){
+      <i class="bi bi-people text-highlight me-1"></i>
+      <a class="icon-link" routerLink="online">Online now</a>
+    } @else {
+      <i class="bi bi-hdd-network text-highlight me-1"></i>
+      <span class="text-highlight">Online statistics</span>
+    }
+  </div>
+  <div class="font-small text-body-tertiary py-1 px-2">
+    <div class="d-flex justify-content-between">
+      <span>Members online:</span>
+      <span>Unknown</span>
+    </div>
+    <div class="d-flex justify-content-between">
+      <span>Guests online:</span>
+      <span>Unknown</span>
+    </div>
+    <div class="d-flex justify-content-between">
+      <span>Total visitors:</span>
+      <span>Unknown</span>
+    </div>
+  </div>
+  @if(page === "home"){
+    <div class="font-small py-1 px-2">
+      @if(userProfile != null){
+        <span>Staff</span>
+        <div class="d-flex" style="min-height: 30px;">
+          <!--TODO: get 'staff' from api-->
+          <!--<span class="alert-warning">TODO: get 'staff' from api service</span>-->
+        </div>
+      } @else{
+        <a routerLink="login">Login</a> to see more!
+      }
+    </div>
+  } @else {
+    <div class="bg-body font-small text-body-tertiary py-1 px-2">
+      <span>Totals may include hidden visitors.</span>
+    </div>
+  }
+
+</div>

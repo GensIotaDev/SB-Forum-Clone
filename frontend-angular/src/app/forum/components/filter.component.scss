@@ -1,0 +1,26 @@
+@import '../../../../node_modules/bootstrap/scss/functions';
+
+$form-bg-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4.9 10'%3E%3Cstyle%3E._xfG%7Bfill:%23ccc;%7D%3C/style%3E%3Cpath class='_xfG' d='M1.4 4.7l1.1-1.5 1 1.5m0 .6l-1 1.5-1.1-1.5'/%3E%3C/svg%3E");
+
+.filter {
+  font-size: 13px;
+
+  &-form-select {
+    @extend .filter;
+    padding: 0.2rem 1.0rem 0.2rem 0.4rem;
+    background-image: $form-bg-url;
+    background-position: right 0.2rem center;
+    background-size: 0.75rem;
+  }
+}
+.filter.row * {
+  padding-right: 0;
+}
+
+.gutter {
+  &-2{
+    --bs-gutter-x: 0.2rem;
+  }
+}
+
+

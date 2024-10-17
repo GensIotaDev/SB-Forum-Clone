@@ -1,0 +1,23 @@
+<h5>Post Thread</h5>
+<form [formGroup]="threadForm" (ngSubmit)="onSubmit()">
+  <div class="rounded default">
+    <div id="test1"></div>
+    <input type="text" placeholder="Thread title" formControlName="title"/>
+  </div>
+  <div>
+    <textarea formControlName="content"></textarea>
+  </div>
+  <div formGroupName="header">
+    <textarea formControlName="description"></textarea>
+    <select formControlName="status">
+      <option value="ongoing" selected>Ongoing</option>
+      <option value="complete">Complete</option>
+    </select>
+  </div>
+  <div formGroupName="threadmark">
+    <textarea formControlName="label"></textarea>
+  </div>
+  <div>
+    <button type="submit" [disabled]="!threadForm.valid">Post</button>
+  </div>
+</form>

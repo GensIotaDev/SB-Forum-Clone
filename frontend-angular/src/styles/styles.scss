@@ -1,0 +1,58 @@
+@import 'bootstrap/scss/functions';
+
+@import "variables";
+
+@import 'bootstrap/scss/variables';
+@import "bootstrap/scss/variables-dark";
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "tertiary": $tertiary,
+  "highlight": $highlight
+);
+
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+@import "bootstrap/scss/bootstrap";
+
+/* Custom */
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+//font
+.font-small {
+  font-size: 0.9em;
+}
+
+%bordered {
+  border: 1px solid $secondary;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.root-body {
+  background-color: $body-bg;
+
+  &-bordered {
+    @extend %bordered;
+  }
+}
+
+.root {
+  background-color: $primary;
+
+  &-bordered {
+    @extend .root;
+    border: 1px solid $secondary;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+}

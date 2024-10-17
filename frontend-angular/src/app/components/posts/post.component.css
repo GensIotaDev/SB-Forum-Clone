@@ -1,0 +1,88 @@
+#root {
+  background-color: var(--blue-background);
+  color: white;
+}
+
+#user-icon {
+  width: 100px;
+  height: 100px;
+}
+
+#user-icon span {
+  opacity: 35%;
+  font-size: 60px;
+}
+
+#content-box {
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex span {
+  margin: 5px;
+}
+
+.post {
+  width: 100%;
+  margin: 5px 0 5px 0;
+  background-color: #212d45;
+  border-radius: 5px;
+  border: 1px solid #2f466c;
+}
+
+#threadmark-header {
+  display: flex;
+  height: 20px;
+}
+
+.highlight-1 {
+  color: coral;
+}
+
+.box {
+  border-radius: 3px;
+  background-color: #528ecc;
+  color: #bddbfa;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  color: white;
+  padding: 10px;
+}
+
+#author #author-card {
+  height: 180px;
+  width:120px;
+  background-color: #666666;
+}
+
+#content {
+  margin-left: 10px;
+}
+
+.header {
+  border-bottom: var(--border);
+}
+.signature {
+  border-top: var(--border);
+}
+
+.grow {
+  display: inline-block;
+  transition: .5s ease;
+}
+
+.grow:hover {
+  transform: scale(1.5);
+}
+
+.message-new {
+  background-color: lawngreen;
+  color: black;
+}

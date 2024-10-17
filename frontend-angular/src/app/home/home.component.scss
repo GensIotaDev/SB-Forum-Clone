@@ -1,0 +1,47 @@
+:host {
+  --bs-dropdown-link-hover-color: var(--bs-secondary);
+}
+
+$white-opacity: rgba(255, 255, 255, 0.5);
+
+.time:after {
+  content: '  \00B7  ';
+}
+
+#author-icon:has(span) {
+  background-color: var(--bs-red);
+  width: 35px;
+  height: 35px;
+}
+#author-icon span {
+  opacity: 35%;
+  font-size: 35px;
+  cursor: default;
+}
+.link-dropdown {
+  background-color: var(--bs-primary);
+  color: $white-opacity;
+  outline: none;
+  border: 1px solid rgba(0,0,0,0);
+}
+
+.link-dropdown:hover > span {
+  text-decoration: $white-opacity underline;
+}
+
+.link-dropdown:focus, .link-dropdown:active {
+  border: 1px solid rgba(0,0,0,0); //Native bootstrap highlights buttons on active click
+}
+
+div[ngbDropdownMenu] {
+  border: 1px solid var(--bs-secondary);
+  background-color: var(--bs-primary);
+}
+
+a[ngbDropdownItem]:hover {
+  text-decoration: none;
+  color: white;
+}
+a[ngbDropdownItem] {
+  font-size: 15px;
+}

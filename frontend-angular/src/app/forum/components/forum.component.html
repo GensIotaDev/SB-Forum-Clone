@@ -1,0 +1,48 @@
+@if(forum$ | async; as forum){
+  <div class="row">
+    <div class="col">
+      <h5>{{forum.title}}</h5>
+      <h6>{{forum.description}}</h6>
+    </div>
+    <div class="col-2 d-flex justify-content-end">
+      <button class="btn btn-tertiary" routerLink="./create-thread">
+        <i class="bi bi-pencil-square"></i>
+        <span class="font-small">Post thread</span>
+      </button>
+    </div>
+  </div>
+  <pre class="alert-warning"></pre>
+  <div class="row mx-0">
+    <div class="col g-0 me-2">
+      <div class="root-bordered mb-2">
+        <div class="row">
+          @for(subform of forum.children; track subform){
+            <forum-row [forum]="subform"/>
+          }
+        </div>
+      </div>
+      <div class="btn-toolbar justify-content-between mb-2" role="toolbar" aria-label="toolbar">
+        <div class="btn-group" role="group" aria-label="page-control">
+          <pagination [collectionSize]="collectionSize" [(page)]="page" [itemsPerPage]="itemsPerPage" (pageChange)="onPageChange()"/>
+        </div>
+        <div class="btn-group btn-group-sm" role="group" aria-label="forum-control">
+          <button type="button" class="btn btn-tertiary">Mark read</button>
+          <button type="button" class="btn btn-tertiary">Unwatch</button>
+          <button type="button" class="btn btn-tertiary">Hide tags</button>
+          <button type="button" class="btn btn-tertiary">Aggregation Settings</button>
+        </div>
+      </div>
+      <div>
+        <router-outlet/>
+      </div>
+      <div class="btn-toolbar justify-content-start mb-2" role="toolbar" aria-label="toolbar">
+        <div class="btn-group" role="group" aria-label="page-control">
+          <pagination [collectionSize]="collectionSize" [(page)]="page" [itemsPerPage]="itemsPerPage" (pageChange)="onPageChange()"/>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto g-0" style="max-width: 20%;">
+      <filter (submit)="changeFilter($event)"/>
+    </div>
+  </div>
+}

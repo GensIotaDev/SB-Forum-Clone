@@ -1,0 +1,40 @@
+@import '../../../../node_modules/bootstrap/scss/functions';
+@import '../../../../node_modules/bootstrap/scss/variables';
+@import '../../../../node_modules/bootstrap/scss/mixins';
+
+@mixin justify-column {
+  display: flex !important;
+  --#{$prefix}gutter-x: 0;
+  --#{$prefix}gutter-y: 0;
+}
+
+.justify-column-left {
+  @include justify-column;
+  justify-content: flex-start !important;
+}
+.justify-column-right {
+  @include justify-column;
+  justify-content: flex-end !important;
+}
+
+.min-w {
+  min-width: 80px;
+}
+.min-w-3 {
+  min-width: 240px;
+}
+
+%float-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.filter-toggle {
+  @extend %float-absolute;
+  z-index: -1;
+}
+.filter-window {
+  @extend %float-absolute;
+  z-index: 2;
+}

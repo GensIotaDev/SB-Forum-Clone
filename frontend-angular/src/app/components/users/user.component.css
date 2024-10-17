@@ -1,0 +1,32 @@
+#root {
+  color: white;
+  background-color: var(--blue-background);
+  overflow: hidden;
+}
+
+#user-icon {
+  width: 192px;
+  height: 192px;
+  margin: 10px;
+  background-color: rosybrown;
+}
+
+#user-icon span {
+  opacity: 35%;
+  font-size: 60px;
+}
+
+div > .nav {
+  background-color: black;
+}
+.nav-link {
+  color: #676565;
+}
+.nav-link:hover {
+  background-color: #202020;
+  color: white;
+}
+.active-page {
+  border-bottom: 3px solid #01af01;
+  color: white;
+}

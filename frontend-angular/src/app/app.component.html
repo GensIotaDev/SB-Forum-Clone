@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-1 offset-1">
+      <a routerLink="/">
+        <img priority ngSrc="/assets/logo-placeholder.png" width="362" height="60" alt="Work In Progress Forums"/>
+      </a>
+    </div>
+  </div>
+  <app-menu class="row sticky-top"/>
+  <div class="row justify-content-center gy-1 mt-1">
+    <app-announcement/>
+    <app-breadcrumb/>
+    <router-outlet/>
+  </div>
+</div>

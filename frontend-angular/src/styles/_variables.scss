@@ -1,0 +1,43 @@
+//$body-bg: black;
+$primary: #212d45;
+$secondary: #4b68a3;
+$tertiary: #535e6f;
+
+$highlight: #6cb2e4;
+
+$body-bg: black;
+$body-color: white;
+
+$green-link: #0cd10c;
+
+//nav
+//$navbar-padding-y: 0px;
+
+$input-bg: $secondary;
+
+
+
+//close button (announcements)
+$btn-close-width: 1em;
+$btn-close-padding-x: 0px;
+
+//tooltip (announcements)
+$tooltip-color: $body-color;
+$tooltip-bg: $primary;
+$tooltip-opacity: .7;
+
+//link
+$link-color: $highlight;
+
+//dropdown
+$dropdown-header-color: white;
+$dropdown-header-padding-y: 0.1em;
+$dropdown-header-padding-x: 0.5em;
+$dropdown-link-hover-bg: $secondary;
+$dropdown-divider-bg: $secondary;
+
+$dropdown-item-padding-y: 0em;
+$dropdown-item-padding-x: 0.6em;
+
+$dropdown-link-color: $green-link;
+

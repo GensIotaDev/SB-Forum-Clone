@@ -1,0 +1,17 @@
+<div id="nav-bar">
+  <div class="left-align">
+    <a routerLink="#forums" routerLinkActive="active" ariaCurrentWhenActive="page">Forums</a>
+    <a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Ask Staff</a>
+  </div>
+
+  <div class="right-align">
+    <div id="unauthorized" [hidden]="isLoggedIn()">
+      <a routerLink="#Login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+      <a routerLink="#Register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
+    </div>
+    <div id="authorized" [hidden]="!isLoggedIn()">
+      <a [routerLink]="" (click)="toggleModal()">Profile</a>
+      <profile-modal [hidden]="!modalActive"/>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="container-md align-self-center mt-2">
+  <div id="rules">
+  </div>
+  <h4>Register</h4>
+  <form class="container border border-secondary" [formGroup]="registerForm" (ngSubmit)="tryRegister()">
+    <div class="row md-3 justify-content-center text-center"> <!-- Username -->
+      <div class="col-1 offset-3 align-self-center">
+        <label for="username" class="col-form-label p-0">Username</label>
+        <label><small>Required</small></label>
+      </div>
+      <div class="col-sm-8 p-3 bg-primary border-start border-secondary">
+        <input type="text" class="form-control" id="username" formControlName="username">
+        <span id="usernameHelp" class="form-text">This is the name that will be shown with your messages. You may use any name you wish.</span>
+      </div>
+    </div>
+    <div class="row md-3 justify-content-center text-center"> <!-- Email -->
+      <div class="col-1 offset-3 align-self-center">
+        <label for="email" class="col-form-label p-0">Email</label>
+        <label><small>Required</small></label>
+      </div>
+      <div class="col-sm-8 p-3 bg-primary border-start border-secondary">
+        <input type="email" class="form-control" id="email" formControlName="email">
+      </div>
+    </div>
+    <div class="row md-3 justify-content-center text-center"> <!-- password -->
+      <div class="col-1 offset-3 align-self-center">
+        <label for="password" class="col-form-label p-0">Password</label>
+        <label><small>Required</small></label>
+      </div>
+      <div class="col-sm-8 p-3 bg-primary border-start border-secondary">
+        <div class="input-group">
+          <input [attr.type]="showPassword? 'text' : 'password'" class="form-control" id="password" formControlName="password">
+          <button class="btn btn-outline-secondary" type="button" (mousedown)="showPassword = true" (mouseup)="showPassword = false">
+            <i class="bi bi-eye"></i>
+            Show
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row md-3 justify-content-center text-center"> <!-- birthday -->
+      <div class="col-1 offset-3 align-self-center">
+        <label for="birthday" class="col-form-label p-0 text-nowrap">Date of birth</label>
+        <span class=""><small>Required</small></span>
+      </div>
+      <div class="col-sm-8 p-3 bg-primary border-start border-secondary">
+        <input type="date" class="form-control w-25" id="birthday" formControlName="birthday">
+      </div>
+    </div>
+    <div formGroupName="settings">
+      <div class="row md-3 justify-content-center text-center"> <!-- date format -->
+        <div class="col-2 offset-2 align-self-center">
+          <label for="format_date" class="col-form-label p-0">Preferred date format</label>
+        </div>
+        <div class="col-sm-8 p-3 bg-primary border-start border-secondary">
+          <div class="input-group w-50">
+            <select id="format_locale" class="form-select" formControlName="locale">
+              @for(local of local_formats; track local){
+                <option [ngValue]="local">{{local}} </option>
+              }
+            </select>
+            <select id="format_date" class="form-select" formControlName="date">
+              @for(style of date_formats; track style; let i = $index){
+                <option [value]="i">{{Intl.DateTimeFormat(locale, style).format(date)}}</option>
+              }
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row md-3 justify-content-center text-center"> <!-- time format -->
+        <div class="col-2 offset-2 align-self-center">
+          <label for="format_time" class="col-form-label p-0">Preferred time format</label>
+        </div>
+        <div class="col-sm-8 p-3 bg-primary border-start border-secondary">
+          <div class="input-group w-25">
+            <select id="format_time" class="form-select" formControlName="time">
+              @for(style of time_formats; track style; let i = $index){
+                <option [value]="i">{{Intl.DateTimeFormat(locale, style).format(date)}}</option>
+              }
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center bg-primary border border-secondary p-1">
+      <div class="col-sm-1">
+        <button type="submit" [disabled]="!registerForm.valid" class="btn btn-tertiary">Register</button>
+      </div>
+    </div>
+  </form>
+</div>
